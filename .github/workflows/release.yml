@@ -25,10 +25,6 @@ jobs:
       - name: Install Rust stable
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Install dependencies (Windows)
-        if: matrix.platform == 'windows-latest'
-        run: cd MatrixOFF && npm install
-
       - name: Build Tauri App & Create Installer
         uses: tauri-apps/tauri-action@v0
         env:
