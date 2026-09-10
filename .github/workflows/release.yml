@@ -28,12 +28,14 @@ jobs:
       - name: Install dependencies (Windows)
         if: matrix.platform == 'windows-latest'
         run: npm install
+        working-directory: ./MatrixOFF
 
       - name: Build Tauri App & Create Installer
         uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          projectPath: './MatrixOFF'
           tagName: __VERSION__
           releaseName: 'Matrix v__VERSION__'
           releaseBody: 'Nouvelle mise à jour de Matrix.'
