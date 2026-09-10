@@ -23,6 +23,8 @@ jobs:
           node-version: 20
 
      - name: Install Rust stable
+         with:
+          toolchain: stable
   uses: dtolnay/rust-toolchain@stable
   with:
     toolchain: stable
