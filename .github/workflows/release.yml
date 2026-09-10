@@ -20,18 +20,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install Rust stable
         uses: dtolnay/rust-toolchain@stable
 
       - name: Build Tauri App & Create Installer
-        uses: tauri-apps/tauri-action@v0
+        uses: tauri-apps/tauri-action@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           projectPath: './MatrixOFF'
-          tagName: __VERSION__
+          tagName: v__VERSION__
           releaseName: 'Matrix v__VERSION__'
           releaseBody: 'Nouvelle mise à jour de Matrix.'
           releaseDraft: false
